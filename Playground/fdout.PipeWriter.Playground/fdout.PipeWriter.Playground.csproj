@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\fdout\fdout.csproj" />
+        <ProjectReference Include="..\..\fdout\fdout.csproj" />
         <ProjectReference Include="..\fdout.Playground.Shared\fdout.Playground.Shared.csproj" />
     </ItemGroup>
 

@@ -5,11 +5,11 @@
         <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>SocketPlayground</RootNamespace>
+        <RootNamespace>StreamPlayground</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\fdout\fdout.csproj" />
+        <ProjectReference Include="..\..\fdout\fdout.csproj" />
         <ProjectReference Include="..\fdout.Playground.Shared\fdout.Playground.Shared.csproj" />
     </ItemGroup>
 

@@ -13,22 +13,15 @@ public sealed class IoUringCache : Cache
 
     public override Mode Mode => Mode.IoUring;
 
-    public IoUringCache(string rootDir, int chunkBytes = DefaultChunkBytes)
-        : base(rootDir, chunkBytes)
-    {
-    }
+    public IoUringCache(string rootDir) : base(rootDir) { }
 
-    public override int Read(Entry entry, Span<byte> dest, long offset = 0)
-    {
+    public override int Read(Entry entry, Span<byte> dest, long offset = 0) {
         return _uring.Value.Read(entry.Fd, dest, offset);
     }
 
-    public override void Dispose()
-    {
-        if (Interlocked.Exchange(ref _disposed, 1) == 0)
-        {
-            if (_uring.IsValueCreated)
-            {
+    public override void Dispose() {
+        if (Interlocked.Exchange(ref _disposed, 1) == 0) {
+            if (_uring.IsValueCreated) {
                 _uring.Value.Dispose();
             }
         }

@@ -4,11 +4,20 @@ using static fdout.Native.Libc;
 namespace fdout;
 
 /// <summary>
-/// Internal sendfile(2) dispatcher with short-write + EAGAIN handling.
+/// Public helper for libc <c>sendfile(2)</c>. This isn't part of the cache contract —
+/// it's a thin syscall wrapper that takes a socket fd and a file fd, with EAGAIN
+/// poll-retry handling. Use it directly when you want the zero-copy file→socket path:
+/// look up an <see cref="Entry"/> via <see cref="Cache.TryGet"/>, then call
+/// <c>Sendfile.Send(socketFd, entry.Fd, entry.Size)</c>.
 /// </summary>
-internal static unsafe class Sendfile
+/// <remarks>
+/// Linux-only. Synchronous; blocks the calling thread until the full file is sent
+/// or the socket can no longer accept data. Handles short writes and EAGAIN (poll
+/// on POLLOUT, retry).
+/// </remarks>
+public static unsafe class Sendfile
 {
-    public static void SendCore(int sockFd, int fileFd, long fileSize)
+    public static void Send(int sockFd, int fileFd, long fileSize)
     {
         long offset    = 0;
         long remaining = fileSize;

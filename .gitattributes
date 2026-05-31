@@ -1,0 +1,8 @@
+# GitHub Linguist overrides — control what shows in the repo "Languages" bar.
+#
+# Mark everything as vendored (excluded from stats), then re-include only the
+# fdout/ library. Playgrounds, CI yml, docs, etc. are kept tracked but don't
+# inflate the language percentages.
+
+* linguist-vendored
+fdout/** linguist-vendored=false
