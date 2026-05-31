@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="fdout/fdout.csproj" />
+  <Project Path="fdout.Playground.Shared/fdout.Playground.Shared.csproj" />
+  <Project Path="fdout.Socket.Playground/fdout.Socket.Playground.csproj" />
+  <Project Path="fdout.Stream.Playground/fdout.Stream.Playground.csproj" />
+  <Project Path="fdout.PipeWriter.Playground/fdout.PipeWriter.Playground.csproj" />
+</Solution>

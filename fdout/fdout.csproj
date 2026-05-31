@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <RootNamespace>fdout</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>fdout</PackageId>
+        <Version>0.0.1</Version>
+        <Authors>Diogo Martins</Authors>
+        <Description>Linux static-file cache + dispatcher. Pre-opens every file in a directory at startup and lets you pick the body-delivery mechanism (RandomAccess.Read / libc sendfile(2) / io_uring IORING_OP_READ) at construction. Use with bare sockets or any web framework.</Description>
+        <PackageTags>linux;sendfile;io-uring;random-access;static-files</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryType>git</RepositoryType>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+
+</Project>

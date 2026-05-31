@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Greg</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+    <h1>Greg</h1>
+    <p>Static file server backed by io_uring (Magpie-style ring pool) on Kestrel.</p>
+    <p>Files are pre-opened at startup; per request, the handler does a URL → fd lookup
+       and one <code>IORING_OP_READ</code> into a pooled buffer. Size is taken from the
+       kernel's read result, not cached.</p>
+    <p>Try: <a href="/css/app.css">/css/app.css</a> &middot;
+       <a href="/nope.html">/nope.html</a> (404).</p>
+</body>
+</html>
