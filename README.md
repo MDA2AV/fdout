@@ -1,5 +1,7 @@
 # fdout
 
+[![NuGet](https://img.shields.io/nuget/v/fdout.svg)](https://www.nuget.org/packages/fdout/)
+
 A small Linux-targeted .NET library for serving file bytes from disk into whatever sink a caller already has — a raw socket, a NetworkStream, a PipeWriter, an SslStream, anything that accepts bytes.
 
 The intended use case is static-asset serving: a web framework wants to push 10KB-to-100MB files out to clients with the lowest reasonable overhead. fdout focuses on the disk side of that — caching file descriptors at startup, reading bytes via the right Linux syscall — and stays out of the wire side. The caller writes the bytes wherever it wants.
